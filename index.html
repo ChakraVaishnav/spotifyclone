@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Clone</title>
-    <link rel="icon" href="logoPR.png">
+    <link rel="icon" href="images/logoPR.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -12,10 +12,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <div class="hamburger">
+        &#9776; <!-- This is the hamburger icon (3 lines) -->
+    </div>
     <div class="sidebar">
         <div class="logo">
           <a href="#" >
-            <img src="TopLogoPR.jpg" alt="Logo"/>
+            <img src="images/TopLogoPR.jpg" alt="Logo"/>
           </a>
         </div>
         <div class="nav">
@@ -49,6 +52,7 @@
                     <button class="playlistbt">create playlist</button>
                     </div>
                 </li>
+                <br>
                 <li>
                     <a href="#">
                         <span class="fa fas fa-heart"></span>
@@ -104,88 +108,100 @@
             <h2>Songs for You</h2>
             <div class="list">
                 <div class="item">
-                    <img src="s1PR.jpeg" />
+                    <img class="img" src="images/s1PR.jpeg" />
                     <div class="play">
-                        <audio class="audio" src="me and the devil.mp3"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s1.mp3"></audio>
                     </div>
                     <h5>Me and the Devil</h5>
                 </div>
                 <div class="item">
-                    <img src="s2PR.jpeg" />
+                    <img class="img" src="images/s2PR.jpeg" />
                     <div class="play">
-                        <audio class="audio" src="moral of the story.mp3"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s2.mp3"></audio>
                     </div>
                     <h5>Moral of the Story</h5>
                 </div>
                 <div class="item">
-                    <img src="s3PR.jpeg" />
+                    <img class="img" src="images/s3PR.jpeg" />
                     <div class="play">
-                        <audio class="audio" src="suzume.m4a"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s3.m4a"  ></audio>
                     </div>
                     <h5>Suzume</h5>
                 </div>
                 <div class="item">
-                    <img src="s4PR.jpeg" />
+                    <img class="img" src="images/s4PR.jpeg" />
                     <div class="play">
-                        <audio class="audio" src="borntodie.m4a"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s4.m4a"  ></audio>
                     </div>
                     <h5>Born To Die</h5>
                 </div>
                 <div class="item">
-                    <img src="s5PR.jpeg" />
+                    <img class="img" src="images/s5PR.jpeg" />
                     <div class="play">
-                        <audio class="audio" src="sayyestohevean.weba"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s5.weba"  ></audio>
                     </div>
                     <h5>Say Yes To Heven</h5>
                 </div>
                 <div class="item">
-                    <img src="s7PR.jpeg" />
+                    <img class="img" src="images/s6PR.jpeg" />
                     <div class="play">
-                        <audio class="audio" src="ditemountaindew.mp3"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s6.mp3"  ></audio>
                     </div>
                     <h5>Dite Mountain Dew</h5>
                 </div>
             </div>
             <div class="list2">
                 <div class="item">
-                    <img src="s8PR.jpeg" />
+                    <img class="img"  src="images/s7PR.jpeg"/>
                     <div class="play">
-                        <audio class="audio" src="anathorlove.m4a"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s7.m4a"  ></audio>
                     </div>
                     <h5>Another Love</h5>
                 </div>
                 <div class="item">
-                    <img src="s9PR.jpeg" />
+                    <img class="img" src="images/s8PR.jpeg" />
                     <div class="play">
-                        <audio class="audio" src="endofthebeginning.weba"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s8.weba"  ></audio>
                     </div>
                     <h5>End of the Beginning</h5>
                 </div>
                 <div class="item">
-                    <img src="s10PR.jpeg" />
+                    <img class="img" src="images/s9PR.jpeg" />
                     <div class="play">
-                        <audio class="audio" src="nothingsnew.mp3"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s9.mp3"  ></audio>
                     </div>
                     <h5>Nothing's New</h5>
                 </div>
                 <div class="item">
-                    <img src="s11PR.jpeg" />
+                    <img class="img" src="images/s10PR.jpeg" />
                     <div class="play">
-                        <audio class="audio" src="CountingStars.mp3"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s10.mp3"  ></audio>
                     </div>
                     <h5>Counting Stars</h5>
                 </div>
                 <div class="item">
-                    <img src="s12PR.jpeg" />
+                    <img class="img" src="images/s11PR.jpeg" />
                     <div class="play">
-                        <audio class="audio" src="nightchanges.mp3"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s11.mp3"  ></audio>
                     </div>
                     <h5>Night Changes</h5>
                 </div>
                 <div class="item">
-                    <img src="s13PR.jpeg" />
+                    <img class="img" src="images/s12PR.jpeg" />
                     <div class="play">
-                        <audio class="audio" src="novo.weba"  controls></audio>
+                        <button id="pbt" class="fas fa-play"></button>
+                        <audio id="audioElement" class="audio" src="music/s12.weba"  ></audio>
                     </div>
                     <h5>Novocaine 2</h5>
                 </div>
@@ -194,8 +210,19 @@
     </main>
     <footer>
         <div class="down">
-            <p>Sign Up to get unlimited songs and playlists <button>Sign up free</button></p>
+           <span class="img-down">
+               <img class="img" id="footerImg" src="images/defualt music.png" alt="">
+           </span>
+           <span class="controls">
+               <button id="prevBT" class="fa fa-step-backward"></button>
+               <button id="Fpbt" class="fa-solid fa-circle-play"></button>
+               <button id="nextBT" class="fa fa-step-forward"></button>
+               <div class="current-time">--:--</div>
+               <input type="range" class="seek-bar" min="0" max="100" value="0">
+               <div class="total-duration">--:--</div>
+           </span>
         </div>
     </footer>
+    <script src="index.js"> </script>
 </body> 
 </html>
