@@ -4,15 +4,14 @@
     margin: 0;
     box-sizing: border-box;
 }
-
 body{
     font-family: "Montserrat", sans-serif;
     background: #121212;
     height: 100%;
-    overflow: hidden;
+    overflow-x:hidden;
 }
 .sidebar{
-    position: fixed;
+    position:fixed;
     left: 0;
     top: 0;
     bottom: 0;
@@ -58,7 +57,6 @@ body{
     text-decoration:underline;
     font-size: 15px;
 }
-
 .sidebar .nav2 ul li .createplaylist{
     display: grid;
     color:whitesmoke ;
@@ -93,6 +91,9 @@ body{
     font-weight: bold;
     transition: all 0.3s ease;
 }
+.sidebar .nav2 ul li .createplaylist .playlistbt:hover{
+    background-color:rgb(214, 211, 211) ;
+}
 .sidebar .pol {
     position: absolute;
     bottom: 100px;
@@ -121,11 +122,13 @@ main{
 }
 .topbar {
     position :fixed;
-    display: flex;
+    display:flex;
     justify-content: space-between;
     background-color: black;
     padding:14px 32px ;
-    width: 1300px;
+    width: 1340px;
+    left: 200px;
+    top: 0;
 }
 .topbar .prev-next-bt button{
     color: dimgray;
@@ -182,10 +185,11 @@ padding-right: 16px;
 }
 .topbar .navbar .sign button:hover{
     color: whitesmoke;
-    font-size: 17px;
+    cursor: pointer;
 }
 .topbar .navbar .log button:hover{
-   font-size: 17px;
+    background-color:rgb(214, 211, 211) ;
+    cursor: pointer;
 }
 .topbar .navbar ul li.divider{
     color: white;
@@ -194,123 +198,305 @@ padding-right: 16px;
     width :auto;
 }
 .songs{
-    padding-top: 70px;
     display: grid;
     padding-left: 20px;
     gap: 20px;
+    padding-top:50px ;
 }
 .songs h2{
     color:whitesmoke;
     font-size: 22px;
     margin-bottom: 20px;
-    position: fixed;
+    position:fixed;
 }
 .songs h2:hover{
     text-decoration: underline;
     cursor: pointer;
 }
-.songs .list{
+.songs .list, .songs .list2{
     padding-top: 50px;
     display: flex;
-    gap: 50px; 
+    gap: 30px; 
     font-size: 22px;
     color: whitesmoke;
 }
-.songs .list .item{
- position:static;
+.songs .list .item,.songs .list2 .item{
+  position: relative;
   min-width: 140px;
-  width: 160px;
+  width: 180px;
+  height: 230px;
   padding: 15px;
   background-color: #181818;
   border-radius: 6px;
-  cursor: pointer;
   transition: all ease 0.4s;
 }
-.songs .list .item:hover{
+.songs .list .item:hover,.songs .list2 .item:hover{
     background-color: #252525;
 }
-.songs .list .item img{
+.songs .list .item img,.songs .list2 .item img{
     width:100%;
     border-radius: 6px;
     margin-bottom: 10px;
 }
-.songs .list .item .play .audio{
-    position: absolute;
-    width:160px;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+.songs .list .item .play,.songs .list2 .item .play{
+  position: absolute;
+  left:110px;
+  top:110px
 }
-.songs .list .item:hover .play .audio{
-   opacity: 1;
-   width:280px;
+.songs .list .item .play .fa-play,.songs .list2 .item .play .fa-play,
+.songs .list .item .play .fa-pause,.songs .list2 .item .play .fa-pause{
+    background-color:#1db954;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    border-radius: 40px;
+    border: none;
+    opacity: 0;
+    cursor: pointer;
+    transform: translateY(20px);
+    transition: transform 0.3s ease, opacity 0.3s ease; 
+    box-shadow:0px 2px 5px rgb(60, 60, 60) ;
+}
+.songs .list .item .play .fa-pause,.songs .list2 .item .play .fa-pause{
+    opacity: 1;
+   transform: translateY(0);
+}
+.songs .list .item .play .fa-pause,.songs .list2 .item .play .fa-pause{
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.songs .list .item:hover .play .fa-play, .songs .list2 .item:hover .play .fa-play{
+  opacity: 1;
+  transform: translateY(0);
+}
+.songs .list .item .play .fa-play:hover,.songs .list2 .item .play .fa-play:hover,
+.songs .list .item .play .fa-pause:hover,.songs .list2 .item .play .fa-pause:hover{
+    background-color:#41da77;
 }
 .songs .list2{
-    display: flex;
-    color: whitesmoke;
-    font-size: 22px;
-    gap:50px;
-    margin-top: 20px;
-    margin-bottom: none;
-}
-.songs .list2 .item {
-    min-width: 140px;
-    width: 160px;
-    background-color: #181818;
-    padding: 15px;
-   border-radius: 6px;
-   transition: all ease 0.5s;
-   gap: 20px;
-}
-.songs .list2 .item:hover{
-    background-color: #252525;
-}
-.songs .list2 .item img{
-    width: 100%;
-    border-radius: 6px;
-}
-.songs .list2 .item .audio{
-    width: 160px;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-position:absolute;
-}
-.songs .list2 .item:hover .audio{
-opacity: 1;
-width: 280px;
-transition: opacity 0.4s ease-in-out;
+    padding-top: 16px;
 }
 footer .down{
     position:fixed;
     display: grid;
     color: white;
-    background-image: linear-gradient(to left, rgb(20, 131, 222),rgb(164, 87, 209),rgb(205, 61, 188));
-    margin-bottom: 10px;
-    margin-top: 10px;
-    bottom: 0;
+    background-color: #1c1b1b;
+    bottom: 0px;
     width:1550px;
-    margin: 5px;
-    height: 35px;
-    padding-bottom: 40px;
-    padding-top: 24px;
-    padding-left: 10px;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
-footer .down button {
-    position: fixed;
-    color: #121212;
-    background-color: whitesmoke;
-    font-size: 15px;
-    border-radius: 40px;
-    margin-left: 1000px;
+
+.img-down img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+.controls {
+    position: relative;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    left: 600px; /* Adjust as needed */
+    bottom: 60px; /* Adjust as needed */
+}
+
+.controls .fa-step-backward, .controls .fa-step-forward {
+    font-size: 20px;
+    padding: 10px;
+    background-color: #1c1c1c;
     border: none;
-    font-weight: bold;
-    bottom: 14px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    padding-left: 26px;
-    padding-right: 26px;
-    font-weight: bolder;
+    color: white;
+    cursor: pointer;
 }
-footer .down button:hover{
-    font-size:17px;
-    background-color: rgb(214, 211, 211);
+
+.controls .fa-circle-play, .controls .fa-circle-pause {
+    padding: 13px 15px; /* Combined padding */
+    font-size: 28px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    background-color: #1c1c1c;
+    color: whitesmoke;
+}
+
+.controls .current-time, .controls .total-duration {
+    font-size: 14px;
+    margin: 0 10px; /* Space between the time and the seek bar */
+}
+
+/* Seek Bar */
+.controls input[type="range"] {
+    -webkit-appearance: none; /* Removes default styles */
+    appearance: none;
+    width: 200px; /* Increased width for longer seek bar */
+    height: 5px;
+    background: #444; /* Background of the seek bar */
+    border-radius: 5px; /* Rounded edges for the bar */
+    outline: none;
+    opacity: 0.8;
+    transition: opacity .15s ease-in-out;
+    cursor: pointer;
+}
+
+.controls input[type="range"]:hover {
+    opacity: 1;
+}
+
+/* Customizing the thumb (handle) */
+.controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Removes default styles */
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: #1db954; /* Spotify green for the thumb */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.controls input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background-color: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .sidebar {
+        width: 230px;
+        position: fixed;
+        left: 230px;
+        top: 0;
+        bottom: 0;
+        background-color: black;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+ .hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: px;
+    z-index: 1000;
+    color: white; 
+ }
+ .sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hide it off-screen */
+    transition: left 0.3s ease;
+ }
+ .hamburger:hover  {
+    left: 0;
+    cursor: pointer;
+ }
+ .hamburger:hover + .sidebar{
+    left: 0;
+ }
+ .sidebar:hover{
+    left: 0;
+ }
+ .sidebar:hover + .hamburger{
+    opacity: 0;
+ }
+ body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: black;
+    color: white;
+ }
+ .sidebar ul {
+    list-style: none;
+    padding: 0;
+ }
+.sidebar ul li {
+    padding: 15px;
+    color: white;
+}
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+main {
+    margin-left: 0;
+    padding: 20px;
+}
+.sidebar .nav ul li a,
+.sidebar .nav2 ul li a {
+    font-size: 12px;
+}
+.sidebar .nav2 ul li .createplaylist {
+    width: 140px;
+    padding: 10px;
+}
+.sidebar .nav2 ul li .createplaylist .bold {
+    font-size: 12px;
+}
+.sidebar .pol ul li a {
+    font-size: 12px;
+}
+.topbar {
+    position :static;
+    height: 60px;
+    padding: 10px;
+    left:20px;
+    width:400px;
+}
+.songs h2{
+   padding-top: 0px; 
+   position:unset; 
+} 
+.songs .list , .songs .list2{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-top: 30px; /* Adjust as needed */
+}
+.songs .list .item .play , .songs .list2 .item .play{
+    position: absolute;
+    left:110px;
+    top:110px
+}
+.songs .list .item, .songs .list2 .item {
+    position:relative;
+}
+.songs .list .item:hover .play .fa-play, .songs .list2 .item:hover .play .fa-play {
+    opacity: 1;   /* Make the play button visible on hover */
+    transform: translateY(0); /* No animation */
+}
+footer .down{
+    height:100px;
+}
+.controls {
+    left: 160px; /* Adjust 'left' to reposition on smaller screens */
+    position: absolute;
+    bottom: 40px;
+}
+
+.controls input[type="range"] {
+    position: absolute; /* Absolute positioning inside the controls container */
+    bottom: -16px; /* Moves seek bar down */
+    left: -30px; /* Adjust horizontally as needed */
+}
+.controls .current-time{
+    position: absolute;
+    left:-70px;
+    bottom: -20px;
+}
+.controls .total-duration{
+    position: absolute;
+    right: -100px;
+    bottom: -20px;
+}
 }
