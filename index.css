@@ -366,6 +366,12 @@ footer .down{
     border-radius: 50%;
     cursor: pointer;
 }
+.controls .fa-repeat,.fa-shuffle{
+   cursor: pointer;
+   background-color:#1c1b1b;
+   border: none;
+   color: whitesmoke;
+}
 
 @media only screen and (max-width: 768px) {
     .sidebar {
@@ -451,7 +457,11 @@ main {
     height: 60px;
     padding: 10px;
     left:20px;
-    width:400px;
+    width:600px;
+}
+.topbar .navbar{
+    position: relative;
+    left: -115px;
 }
 .songs h2{
    padding-top: 0px; 
@@ -461,7 +471,7 @@ main {
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    padding-top: 30px; /* Adjust as needed */
+    padding-top: 30px;
 }
 .songs .list .item .play , .songs .list2 .item .play{
     position: absolute;

@@ -1,9 +1,13 @@
 let currentAudio = null; 
 let currentButton = null;
+let currentImage=null;
 let currentIndex = -1; 
+let isLooping = false; // Initialize looping variable
+let isShuffle=false;
 
 const playButtons = document.querySelectorAll(".fa-play");
 const audios = document.querySelectorAll("audio");
+const images=document.getElementsByClassName("Img");
 const Fpbt = document.getElementById("Fpbt");
 const Npbt = document.getElementById("nextBT");
 const Ppbt = document.getElementById("prevBT");
@@ -11,22 +15,8 @@ const seekBar = document.querySelector('.seek-bar');
 const currentTimeDisplay = document.querySelector('.current-time');
 const totalDurationDisplay = document.querySelector('.total-duration');
 const currentSongImg = document.getElementById('footerImg');  // Updated to select footer image
-
-// Array storing paths to the images corresponding to each song
-const songImages = [
-    "images/s1PR.jpeg",  // Image for first song
-    "images/s2PR.jpeg",  // Image for second song
-    "images/s3PR.jpeg",  // Image for third song
-    "images/s4PR.jpeg",
-    "images/s5PR.jpeg",
-    "images/s6PR.jpeg",
-    "images/s7PR.jpeg",
-    "images/s8PR.jpeg",
-    "images/s9PR.jpeg",
-    "images/s10PR.jpeg",
-    "images/s11PR.jpeg",
-    "images/s12PR.jpeg"
-];
+const loop = document.getElementById("loop"); // Loop button element
+const shuffle=document.getElementById("shuffle");
 
 function formatTime(time) {
     const minutes = Math.floor(time / 60);
@@ -56,7 +46,7 @@ audios.forEach((audio, index) => {
     });
 });
 
-function toggleAudio(button, audio, index) {
+function toggleAudio(button, audio,image, index) {
     if (currentAudio && currentAudio !== audio) {
         currentAudio.pause();
         currentButton.classList.replace('fa-pause', 'fa-play');
@@ -69,14 +59,8 @@ function toggleAudio(button, audio, index) {
         currentAudio = audio;
         currentButton = button;
         currentIndex = index;
-
-        // Update song image in the footer when playing a new song
-        if (songImages[index]) {
-            currentSongImg.src = songImages[index];  // Updates the <img> tag's source in footer
-        } else {
-            console.log("No image found for index " + index);
-        }
-
+        currentImage=image.src;
+        currentSongImg.src=currentImage;
         seekBar.max = audio.duration;
         totalDurationDisplay.textContent = formatTime(audio.duration);
     } else {
@@ -87,12 +71,26 @@ function toggleAudio(button, audio, index) {
 }
 
 playButtons.forEach((button, index) => {
-    button.addEventListener("click", () => toggleAudio(button, audios[index], index));
+    button.addEventListener("click", () => toggleAudio(button, audios[index],images[index], index));
 
     audios[index].addEventListener('ended', () => {
-        if (index < audios.length - 1) {
-            toggleAudio(playButtons[index + 1], audios[index + 1], index + 1);
-        } else {
+        if (isLooping) {  // Check if looping is enabled
+            currentAudio.currentTime = 0;
+            currentAudio.play();
+        }
+        else if(isShuffle){
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * audios.length); // Generate a random index
+            } while (randomIndex === currentIndex); // Ensure it's not the same as the current index
+            
+            currentIndex = randomIndex; // Update currentIndex to the new random index
+            toggleAudio(playButtons[randomIndex], audios[randomIndex], images[randomIndex], randomIndex);
+        }
+        else if (index < audios.length - 1) {
+            toggleAudio(playButtons[index + 1], audios[index + 1],images[index+1], index + 1);
+        } 
+        else{
             Fpbt.classList.replace('fa-circle-pause', 'fa-circle-play');
         }
     });
@@ -114,13 +112,13 @@ Fpbt.addEventListener('click', () => {
 
 Npbt.addEventListener('click', () => {
     if (currentAudio != null && currentIndex < audios.length - 1) {
-        toggleAudio(playButtons[currentIndex + 1], audios[currentIndex + 1], currentIndex + 1);
+        toggleAudio(playButtons[currentIndex + 1], audios[currentIndex + 1],images[currentIndex+1], currentIndex + 1);
     }
 });
 
 Ppbt.addEventListener('click', () => {
     if (currentAudio != null && currentIndex > 0) {
-        toggleAudio(playButtons[currentIndex - 1], audios[currentIndex - 1], currentIndex - 1);
+        toggleAudio(playButtons[currentIndex - 1], audios[currentIndex - 1],images[currentIndex-1], currentIndex - 1);
     }
 });
 
@@ -130,4 +128,13 @@ seekBar.addEventListener('input', () => {
         currentAudio.currentTime = seekBar.value;
         currentTimeDisplay.textContent = formatTime(seekBar.value);
     }
+});
+
+loop.addEventListener('click', () => {
+    isLooping = !isLooping; // Toggle loop state
+    loop.style.color = isLooping ? '#1db954' : 'whitesmoke';  // Change button color based on loop state
+});
+shuffle.addEventListener('click', () => {
+    isShuffle = !isShuffle; // Toggle loop state
+    shuffle.style.color = isShuffle ? '#1db954' : 'whitesmoke';  // Change button color based on loop state
 });
