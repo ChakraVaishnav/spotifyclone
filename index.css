@@ -348,7 +348,6 @@ footer .down{
     opacity: 1;
 }
 
-/* Customizing the thumb (handle) */
 .controls input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none; /* Removes default styles */
     appearance: none;
@@ -370,56 +369,34 @@ footer .down{
    cursor: pointer;
    background-color:#1c1b1b;
    border: none;
-   color: whitesmoke;
+   color: whitesmoke; 
 }
 
 @media only screen and (max-width: 768px) {
-    .sidebar {
-        width: 230px;
-        position: fixed;
-        left: 230px;
-        top: 0;
-        bottom: 0;
-        background-color: black;
-        transition: left 0.3s ease;
-        z-index: 999;
-    }
- .hamburger {
+ .fa-bars{
     font-size: 30px;
     cursor: pointer;
     position: fixed;
     top: 15px;
-    left: px;
+    left: 10px;
     z-index: 1000;
-    color: white; 
+    color:#ffffff; 
+    border: none;
+    background-color: #000000;
  }
  .sidebar {
     width: 250px;
     height: 100%;
-    background-color: #333;
+    background-color:#181818;
     position: fixed;
     top: 0;
     left: -250px; /* Hide it off-screen */
     transition: left 0.3s ease;
- }
- .hamburger:hover  {
-    left: 0;
-    cursor: pointer;
- }
- .hamburger:hover + .sidebar{
-    left: 0;
- }
- .sidebar:hover{
-    left: 0;
- }
- .sidebar:hover + .hamburger{
-    opacity: 0;
+    z-index: 999;
  }
  body {
-    font-family: 'Montserrat', sans-serif;
     margin: 0;
     background-color: black;
-    color: white;
  }
  .sidebar ul {
     list-style: none;
@@ -453,19 +430,25 @@ main {
     font-size: 12px;
 }
 .topbar {
-    position :static;
+    position:absolute;
     height: 60px;
     padding: 10px;
-    left:20px;
-    width:600px;
+    left:0px;
+    width:440px;
+    top: 0px;
 }
-.topbar .navbar{
-    position: relative;
-    left: -115px;
+.topbar .prev-next-bt{
+    position:relative;
+    top: 10px;
+    left: 40px;
+}
+.topbar .fa-chevron-left{
+    background-color: #121212;
 }
 .songs h2{
+    top: 20px;
    padding-top: 0px; 
-   position:unset; 
+   position:relative; 
 } 
 .songs .list , .songs .list2{
     display:grid;

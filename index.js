@@ -17,7 +17,17 @@ const totalDurationDisplay = document.querySelector('.total-duration');
 const currentSongImg = document.getElementById('footerImg');  // Updated to select footer image
 const loop = document.getElementById("loop"); // Loop button element
 const shuffle=document.getElementById("shuffle");
-
+const sidebar = document.querySelector('.sidebar');
+const menuButton = document.querySelector('.fa-bars');
+    
+menuButton.onclick = function() {
+     if (sidebar.style.left === '-250px' || sidebar.style.left === '') {
+      sidebar.style.left = '0'; // Show sidebar
+     } 
+     else {
+            sidebar.style.left = '-250px'; // Hide sidebar
+       }
+    };
 function formatTime(time) {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60).toString().padStart(2, '0');
